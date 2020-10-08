@@ -53,7 +53,7 @@ input:
         push x
         push number
         call [scanf] ; Считываем х с консоли.
-        add esp, ; Очищаем стек.
+        add esp, 4 ; Очищаем стек.
 
         push question1
         call[printf] ; Просим ввести размер массива А.

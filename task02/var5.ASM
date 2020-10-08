@@ -13,7 +13,7 @@ section '.data' data readable writable
         question1       db 'Size of array: ', 0
         question2       db '[%d] =  ', 0
         question3       db 'Write the value of x: ', 0
-        strIncorSize    db 'Incorrect size of vector = %d', 10, 0
+        strIncorSize    db 'Incorrect size of vector', 10, 0
         number          db '%d', 0
         result          db 'Result : ', 10,0
         strVecElemOut   db '[%d] = %d', 10, 0
@@ -69,11 +69,9 @@ input:
         jg getElement ; Если размер массива не равен нулю переходим по метке.
 
         ; Иначе продолжаем работу.
-        push size
         push strIncorSize
         call [printf] ; Выводим сообщение о том, что размер стека задан неверно.
-        push 0
-        call [ExitProcess] ; Завершаем работу программы.
+        jmp finish
 
 ; Перейдём на эту метку в случае если размер массива больше 0.
 getElement:
